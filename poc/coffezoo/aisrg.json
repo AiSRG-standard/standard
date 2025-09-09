@@ -1,0 +1,30 @@
+{
+  "aisrg_version": "1.1",
+  "provider": {
+    "name": "Coffe Zoo",
+    "website": "[https://coffezoo.com](https://coffezoo.com)"
+  },
+  "verification": {
+    "method": "dns-txt",
+    "proof": "aisrg-verification=a-very-unique-and-random-string-generated-by-coffezoo"
+  },
+  "authentication": {
+    "methods_supported": ["otp", "oauth2"],
+    "otp_endpoint": "[https://api.coffezoo.com/v1/auth/request-otp](https://api.coffezoo.com/v1/auth/request-otp)",
+    "oauth2_endpoint": "[https://api.coffezoo.com/v1/auth/oauth2](https://api.coffezoo.com/v1/auth/oauth2)"
+  },
+  "actions": [
+    {
+      "action_id": "view_menu",
+      "description": "View the full menu of drinks and food.",
+      "security_level": "none",
+      "endpoint": "[https://api.coffezoo.com/v1/menu](https://api.coffezoo.com/v1/menu)",
+      "method": "GET",
+      "parameters": [],
+      "responses": {
+        "success": "Here is our recommended menu: {menu_items}",
+        "failure": "Sorry, the menu could not be retrieved at this time."
+      }
+    }
+  ]
+}
