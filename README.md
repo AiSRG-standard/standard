@@ -23,6 +23,7 @@ Simply put, AiSRG is a simple set of rules that allows any website or service to
 "To book a table, here is the information you need and the back door (API Endpoint) you need to send it to."
 
 For example, a simplified aisrg.json looks like this:
+
     ```{
     "aisrg_version": "1.1",
     "provider": {
@@ -51,11 +52,11 @@ For example, a simplified aisrg.json looks like this:
 
 Through a simple discovery mechanism using a <meta> Tag, any AI that supports this standard can automatically discover and learn the capabilities of millions of websites.
 
-🎯 AiSRG Advantages
-✳️ No Hard Coding - AI automatically learns new services.
-✳️ Standardized - Developers know how to implement them.
-✳️ Extensible - Unlimited new services can be added.
-✳️ Human-Friendly - Natural conversation.
+## 🎯 AiSRG Advantages
+1. No Hard Coding - AI automatically learns new services.
+2. Standardized - Developers know how to implement them.
+3. Extensible - Unlimited new services can be added.
+4. Human-Friendly - Natural conversation.
 
 ## Our Vision: "The Open Kitchen"
 
