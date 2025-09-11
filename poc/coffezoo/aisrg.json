@@ -2,28 +2,69 @@
   "aisrg_version": "1.1",
   "provider": {
     "name": "Coffe Zoo",
-    "website": "[https://coffezoo.com](https://coffezoo.com)"
+    "website": "https://aisrg.org/demo/coffezoo/"
   },
   "verification": {
     "method": "dns-txt",
-    "proof": "aisrg-verification=a-very-unique-and-random-string-generated-by-coffezoo"
+    "proof": "aisrg-verification=your-unique-string-for-aisrg-org"
   },
   "authentication": {
-    "methods_supported": ["otp", "oauth2"],
-    "otp_endpoint": "[https://api.coffezoo.com/v1/auth/request-otp](https://api.coffezoo.com/v1/auth/request-otp)",
-    "oauth2_endpoint": "[https://api.coffezoo.com/v1/auth/oauth2](https://api.coffezoo.com/v1/auth/oauth2)"
+    "methods_supported": []
   },
   "actions": [
     {
       "action_id": "view_menu",
-      "description": "View the full menu of drinks and food.",
+      "description": "View the full menu",
       "security_level": "none",
-      "endpoint": "[https://api.coffezoo.com/v1/menu](https://api.coffezoo.com/v1/menu)",
+      "endpoint": "api/",
       "method": "GET",
       "parameters": [],
       "responses": {
-        "success": "Here is our recommended menu: {menu_items}",
-        "failure": "Sorry, the menu could not be retrieved at this time."
+        "success": "Here is our menu: {menu_items}",
+        "failure": "Sorry, the menu is unavailable."
+      }
+    },
+    {
+      "action_id": "book_table",
+      "description": "Book a table in advance",
+      "security_level": "none",
+      "endpoint": "api/",
+      "method": "POST",
+      "parameters": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "The name for the booking"
+        },
+        {
+          "name": "phone_number",
+          "type": "string",
+          "required": true,
+          "description": "A contact phone number"
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "required": true,
+          "description": "The date for the booking (YYYY-MM-DD)"
+        },
+        {
+          "name": "time",
+          "type": "string",
+          "required": true,
+          "description": "The time for the booking (HH:mm)"
+        },
+        {
+          "name": "guests",
+          "type": "integer",
+          "required": true,
+          "description": "The number of guests"
+        }
+      ],
+      "responses": {
+        "success": "Booking for {name} ({guests} guests) on {date} at {time} is confirmed! Your booking ID is #{booking_id}",
+        "failure": "Sorry, tables are fully booked at that time."
       }
     }
   ]
